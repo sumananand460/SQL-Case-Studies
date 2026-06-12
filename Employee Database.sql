@@ -108,3 +108,6 @@ SELECT * FROM employees;
 -- Operation 6B: Table Wipe (COMMENTED OUT SO IT DOESN'T RUN AUTOMATICALLY)
 -- Uncomment the line below if you want to completely empty the table while keeping its layout structure.
 -- TRUNCATE TABLE employees;
+
+describe employees; -- Running DESCRIBE employees; is the perfect way to double-check your work! 
+-- It acts like a blueprint scanner, showing you the exact data structure, column rules, and keys of your table instead of the data inside it.
