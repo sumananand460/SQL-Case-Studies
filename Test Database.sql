@@ -233,3 +233,63 @@ SELECT
     MIN(salary) AS minimum_salary,
     MAX(salary) AS maximum_salary
 FROM employees;
+
+-- =========================================================
+-- GROUP BY
+-- =========================================================
+
+-- Count employees in each department
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department;
+
+-- Total salary by department
+SELECT department, SUM(salary) AS total_salary
+FROM employees
+GROUP BY department;
+
+-- Average salary by department
+SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department;
+
+-- Highest salary by department
+SELECT department, MAX(salary) AS highest_salary
+FROM employees
+GROUP BY department;
+
+-- Lowest salary by department
+SELECT department, MIN(salary) AS lowest_salary
+FROM employees
+GROUP BY department;
+
+-- =========================================================
+-- HAVING
+-- =========================================================
+
+-- Departments with total salary greater than 50000
+SELECT department, SUM(salary) AS total_salary
+FROM employees
+GROUP BY department
+HAVING SUM(salary) > 50000;
+
+-- Departments with more than one employee
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 1;
+
+-- Departments with average salary at least 25000
+SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) >= 25000;
+
+-- =========================================================
+-- GROUP BY + ORDER BY
+-- =========================================================
+
+SELECT department, SUM(salary) AS total_salary
+FROM employees
+GROUP BY department
+ORDER BY total_salary DESC;
